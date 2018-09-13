@@ -9,7 +9,7 @@ namespace minesweeper
     /// <summary>
     /// This class contains properties of a field
     /// </summary>
-    class Field
+    public class Field
     {
         public Type type;
         public bool visible;
@@ -21,5 +21,5 @@ namespace minesweeper
     /// <summary>
     /// Describe the type of a fiel
     /// </summary>
-    enum Type { empty, number, mine }
+     public enum Type { empty, number, mine }
 }

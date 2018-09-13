@@ -10,7 +10,7 @@ namespace minesweeper
     /// This class contains all logic of the game
     /// </summary>
     
-    class Game
+    public class Game
     {
         int Rows;
         int Columns;
@@ -19,7 +19,7 @@ namespace minesweeper
         int markedFields; //Flags entered by user
         bool gameEnded = false;
         Field[,] Board;
-        List<Point> MinesCoordinates; // Coordinates where they are all mines; 
+        public List<Point> MinesCoordinates; // Coordinates where they are all mines; 
 
         /// <summary>
         /// Show the menu to the user and validate the input
@@ -51,7 +51,7 @@ namespace minesweeper
         /// <summary>
         /// Receive and validate the size of the board
         /// </summary>
-        void newGame()
+        public void newGame()
         {
             bool isValid = false;
             gameEnded = false;
@@ -97,7 +97,7 @@ namespace minesweeper
         /// <summary>
         /// Menu content
         /// </summary>
-        void showMenu()
+        public void showMenu()
         {
             Console.SetWindowSize(120, 30);
             Console.WriteLine("::::::::::::Welcome to Minesweeper::::::::::::");
@@ -110,7 +110,7 @@ namespace minesweeper
         /// <summary>
         /// Building the board with mines and other elements
         /// </summary>
-        void buildBoard()
+        public void buildBoard()
         {
             // List that contains all possible cordinates
             List<Point> pointsGenerated = new List<Point>();
@@ -155,7 +155,7 @@ namespace minesweeper
         /// </summary>
         /// <param name="x">Coordinate X</param>
         /// <param name="y">Coordinate Y</param>
-        void initializeField(int x, int y)
+        public void initializeField(int x, int y)
         {
             int mines = 0;
 
@@ -265,7 +265,7 @@ namespace minesweeper
         /// <summary>
         /// Receive and validate the user's movement
         /// </summary>
-        void readInput()
+        public void readInput()
         {
 
             bool isValid = false;
@@ -311,7 +311,7 @@ namespace minesweeper
         /// <param name="row">Coordinate X</param>
         /// <param name="column">Coordinate Y</param>
         /// <param name="action">Action</param>
-        void executeInput(int row, int column, string action)
+        public void executeInput(int row, int column, string action)
         {
             // validate that the field is not visible
             if (action.Equals("U") && !Board[row - 1, column - 1].visible) 
@@ -375,7 +375,7 @@ namespace minesweeper
         /// <summary>
         /// Show all hidden mines when the player loses
         /// </summary>
-        void showHiddenMines()
+        public void showHiddenMines()
         {
             foreach (Point p in MinesCoordinates)
             {
@@ -396,7 +396,7 @@ namespace minesweeper
         /// </summary>
         /// <param name="x">Coordinate X</param>
         /// <param name="y">Coordinate Y</param>
-        void showAdjacent(int x, int y)
+        public void showAdjacent(int x, int y)
         {
 
             if (x > 0)
@@ -467,7 +467,7 @@ namespace minesweeper
         /// <summary>
         ///  Show the board to the user
         /// </summary>
-        void printBoard()
+        public void printBoard()
         {
             Console.WriteLine();
 
@@ -519,7 +519,7 @@ namespace minesweeper
         /// <param name="r">Random element</param>
         /// <param name="pointsGenerated">List of all possible coordinates</param>
         /// <returns></returns>
-        Point GetRandomPoint(Random r, List<Point> pointsGenerated)
+        public Point GetRandomPoint(Random r, List<Point> pointsGenerated)
         {
 
             int pos = r.Next(0, pointsGenerated.Count - 1);
